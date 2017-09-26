@@ -8,7 +8,7 @@ RUN apk update \
   php7-curl php7-iconv 
 
 RUN mkdir /run/nginx/ \
-	mkdir /dat
+	mkdir /data
 
 VOLUME ["/etc/nginx","/var/www", "/data"]
 
