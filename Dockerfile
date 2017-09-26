@@ -7,11 +7,11 @@ RUN apk update \
   php7-json php7-opcache php7-gd \
   php7-curl php7-iconv 
 
-RUN mkdir /run/nginx/
+RUN mkdir /run/nginx/ \
+	mkdir /dat
 
-VOLUME /etc/nginx/
+VOLUME ["/etc/nginx","/var/www", "/data"]
 
-EXPOSE 80
-EXPOSE 443
+EXPOSE 80 443
 
-ENTRYPOINT ["nginx"]
+CMD ["nginx", "-g", "daemon off;"]
